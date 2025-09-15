@@ -39,14 +39,14 @@ const rsvpFormSchema = z.object({
   }),
 })
 .superRefine((data, ctx) => {
-  if (data.hasPlusOne === 'no' && (!data.plusOneName || data.plusOneName.length < 2)) {
+  if (data.hasPlusOne === 'no' && (!data.plusOneName || data.plusOneName.trim().length < 2)) {
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
       message: "El nombre del acompañante debe tener al menos 2 caracteres.",
       path: ["plusOneName"],
     });
   }
-  if (data.dietaryRestrictions === 'yes' && (!data.dietaryDetails || data.dietaryDetails.length === 0)) {
+  if (data.dietaryRestrictions === 'yes' && (!data.dietaryDetails || data.dietaryDetails.trim().length === 0)) {
     ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: "Por favor, especifica las preferencias o alergias.",
@@ -315,5 +315,3 @@ export default function RsvpForm() {
     </Section>
   );
 }
-
-    
