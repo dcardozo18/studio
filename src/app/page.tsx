@@ -4,6 +4,7 @@ import GuestBook from '@/components/wedding/GuestBook';
 import MusicPlaylist from '@/components/wedding/MusicPlaylist';
 import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
+import Agenda from '@/components/wedding/Agenda';
 
 export default function Home() {
   return (
@@ -12,6 +13,8 @@ export default function Home() {
       <Invitation />
       <FlowerDivider />
       <WeddingDetails />
+      <FlowerDivider />
+      <Agenda />
       <FlowerDivider />
       <GuestBook />
       <FlowerDivider />
