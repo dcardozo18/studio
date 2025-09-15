@@ -19,7 +19,7 @@ export default function Hero() {
       )}
       <div className="absolute inset-0 bg-black/40" />
       <div className="relative z-10 p-4 animate-fade-in-up">
-        <h1 className="text-6xl md:text-8xl font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)' }}>
+        <h1 className="text-6xl md:text-8xl font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)', fontFamily: "'Mea Culpa', cursive" }}>
           Ricardo & Rocio
         </h1>
         <p className="mt-4 text-xl md:text-2xl" style={{ textShadow: '1px 1px 4px rgba(0,0,0,0.5)' }}>
