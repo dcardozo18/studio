@@ -1,3 +1,4 @@
+
 import Hero from '@/components/wedding/Hero';
 import WeddingDetails from '@/components/wedding/WeddingDetails';
 import GuestBook from '@/components/wedding/GuestBook';
@@ -5,6 +6,7 @@ import MusicPlaylist from '@/components/wedding/MusicPlaylist';
 import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
 import Agenda from '@/components/wedding/Agenda';
+import RsvpForm from '@/components/wedding/RsvpForm';
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
       <WeddingDetails />
       <FlowerDivider />
       <Agenda />
+      <FlowerDivider />
+      <RsvpForm />
       <FlowerDivider />
       <GuestBook />
       <FlowerDivider />

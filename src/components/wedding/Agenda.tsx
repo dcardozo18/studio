@@ -1,3 +1,4 @@
+
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Section from "./Section";
@@ -61,14 +62,6 @@ export default function Agenda() {
                             </div>
                         </div>
                     ))}
-                </div>
-
-                <div className="mt-10 pt-6 border-t border-dashed border-[#C5B5A4]">
-                    <h3 className="text-2xl font-headline text-accent uppercase tracking-wider">Confirma tu asistencia aquí</h3>
-                    <Button size="lg" className="mt-4 bg-primary hover:bg-primary/90 text-primary-foreground text-lg">
-                        <CheckCircle className="mr-2" />
-                        RSVP
-                    </Button>
                 </div>
             </div>
         </Section>
