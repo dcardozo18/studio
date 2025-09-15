@@ -2,7 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Section from "./Section";
-import { MapPin, Shirt, Gift, CheckCircle } from 'lucide-react';
+import { MapPin, Shirt, Gift } from 'lucide-react';
 import Link from "next/link";
 
 const agendaItems = [
@@ -43,24 +43,26 @@ const agendaItems = [
 export default function Agenda() {
     return (
         <Section animationDelay='800ms'>
-            <div className="bg-[#F5EFE8] text-[#634F44] font-body text-center rounded-lg shadow-lg p-8 md:p-12 max-w-2xl mx-auto">
-
-                <div className="space-y-8">
+            <div className="text-center">
+                <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-10">Itinerario</h2>
+                <div className="grid md:grid-cols-3 gap-8">
                     {agendaItems.map((item, index) => (
-                        <div key={index} className="flex flex-col items-center">
-                            <item.icon className="w-10 h-10 text-accent mb-3" />
-                            <h3 className="text-xl font-headline uppercase tracking-widest">{item.title}</h3>
-                            <div className="mt-2 text-sm leading-relaxed">
-                                {item.lines.map((line, lineIndex) => <p key={lineIndex}>{line}</p>)}
-                            </div>
-                            <div className="flex gap-4 mt-3">
-                                {item.links.map((link, linkIndex) => (
-                                     <Button key={linkIndex} asChild variant="link" className="text-accent hover:text-accent/80 p-0 h-auto">
-                                        <Link href={link.url} target="_blank">{link.text}</Link>
-                                    </Button>
-                                ))}
-                            </div>
-                        </div>
+                        <Card key={index} className="bg-[#F5EFE8] text-[#634F44] border-0 shadow-lg flex flex-col pt-8 pb-6 px-6">
+                            <CardContent className="flex flex-col items-center text-center flex-grow">
+                                <item.icon className="w-12 h-12 text-accent mb-4" />
+                                <h3 className="text-xl font-headline uppercase tracking-widest mb-3">{item.title}</h3>
+                                <div className="text-sm leading-relaxed mb-4 flex-grow">
+                                    {item.lines.map((line, lineIndex) => <p key={lineIndex}>{line}</p>)}
+                                </div>
+                                <div className="flex gap-4">
+                                    {item.links.map((link, linkIndex) => (
+                                         <Button key={linkIndex} asChild variant="link" className="text-accent hover:text-accent/80 p-0 h-auto">
+                                            <Link href={link.url} target="_blank">{link.text}</Link>
+                                        </Button>
+                                    ))}
+                                </div>
+                            </CardContent>
+                        </Card>
                     ))}
                 </div>
             </div>
