@@ -1,7 +1,6 @@
 
 import Hero from '@/components/wedding/Hero';
 import WeddingDetails from '@/components/wedding/WeddingDetails';
-import GuestBook from '@/components/wedding/GuestBook';
 import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
 import Agenda from '@/components/wedding/Agenda';
@@ -19,8 +18,6 @@ export default function Home() {
       <Agenda />
       <FlowerDivider />
       <RsvpForm />
-      <FlowerDivider />
-      <GuestBook />
       <FlowerDivider />
       <MusicSuggestion />
       <footer className="w-full py-8 text-center text-muted-foreground">
