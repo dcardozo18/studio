@@ -38,11 +38,21 @@ const rsvpFormSchema = z.object({
     required_error: "Por favor selecciona una opción.",
   }),
 })
-.refine(data => data.hasPlusOne === 'no' || (data.hasPlusOne === 'yes' && data.plusOneName && data.plusOneName.length >= 2), {
+.refine(data => {
+  if (data.hasPlusOne === 'no' && (!data.plusOneName || data.plusOneName.length < 2)) {
+    return false;
+  }
+  return true;
+}, {
   message: "El nombre del acompañante debe tener al menos 2 caracteres.",
   path: ["plusOneName"],
 })
-.refine(data => data.dietaryRestrictions === 'no' || (data.dietaryRestrictions === 'yes' && data.dietaryDetails && data.dietaryDetails.length > 0), {
+.refine(data => {
+    if (data.dietaryRestrictions === 'yes' && (!data.dietaryDetails || data.dietaryDetails.length === 0)) {
+        return false;
+    }
+    return true;
+}, {
     message: "Por favor, especifica las preferencias o alergias.",
     path: ["dietaryDetails"],
 });
@@ -307,3 +317,5 @@ export default function RsvpForm() {
     </Section>
   );
 }
+
+    
