@@ -8,7 +8,7 @@ export default function Invitation() {
 
   return (
     <Section className="!py-0">
-      <div className="relative bg-[#F5EFE8] text-[#634F44] font-body text-center rounded-lg shadow-lg overflow-hidden max-w-2xl mx-auto">
+      <div className="relative text-[#634F44] font-body text-center rounded-lg overflow-hidden max-w-2xl mx-auto">
         {topFlowers && (
           <div className="relative h-48">
             <Image
