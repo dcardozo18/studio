@@ -87,18 +87,8 @@ export default function RsvpForm() {
 
   return (
     <Section>
-        <div className="relative bg-[#F5EFE8] text-[#634F44] font-body text-center rounded-lg shadow-lg overflow-hidden max-w-2xl mx-auto">
-            {topFlowers && (
-            <div className="relative h-48">
-                <Image
-                src={topFlowers.imageUrl}
-                alt={topFlowers.description}
-                fill
-                className="object-contain object-top"
-                data-ai-hint={topFlowers.imageHint}
-                />
-            </div>
-            )}
+        <div className="relative text-[#634F44] font-body text-center rounded-lg overflow-hidden max-w-2xl mx-auto">
+            
             
             <div className="px-6 md:px-12 pb-8">
                 <h2 className="text-3xl font-headline uppercase tracking-widest mb-8">Confirmación de Asistencia</h2>
@@ -300,17 +290,6 @@ export default function RsvpForm() {
             </div>
 
 
-            {bottomFlowers && (
-            <div className="relative h-48 mt-4">
-                <Image
-                src={bottomFlowers.imageUrl}
-                alt={bottomFlowers.description}
-                fill
-                className="object-contain object-bottom"
-                data-ai-hint={bottomFlowers.imageHint}
-                />
-            </div>
-            )}
       </div>
     </Section>
   );

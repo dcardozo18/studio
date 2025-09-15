@@ -9,18 +9,6 @@ export default function Invitation() {
   return (
     <Section className="!py-0">
       <div className="relative text-[#634F44] font-body text-center rounded-lg overflow-hidden max-w-2xl mx-auto">
-        {topFlowers && (
-          <div className="relative h-48">
-            <Image
-              src={topFlowers.imageUrl}
-              alt={topFlowers.description}
-              fill
-              className="object-contain object-top"
-              data-ai-hint={topFlowers.imageHint}
-            />
-          </div>
-        )}
-
         <div className="px-6 pb-4 pt-0">
           <p className="text-sm uppercase tracking-widest leading-relaxed">
             Dos almas, una vida y el deseo de compartirla con quienes amamos
@@ -48,17 +36,6 @@ export default function Invitation() {
           </div>
         </div>
 
-        {bottomFlowers && (
-          <div className="relative h-48 mt-4">
-             <Image
-              src={bottomFlowers.imageUrl}
-              alt={bottomFlowers.description}
-              fill
-              className="object-contain object-bottom"
-              data-ai-hint={bottomFlowers.imageHint}
-            />
-          </div>
-        )}
       </div>
     </Section>
   );

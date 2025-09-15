@@ -47,7 +47,7 @@ export default function Agenda() {
                 <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-10">Itinerario</h2>
                 <div className="grid md:grid-cols-3 gap-8">
                     {agendaItems.map((item, index) => (
-                        <Card key={index} className="bg-[#F5EFE8] text-[#634F44] border-0 shadow-lg flex flex-col pt-8 pb-6 px-6">
+                        <Card key={index} className="text-[#634F44] border-0 flex flex-col pt-8 pb-6 px-6">
                             <CardContent className="flex flex-col items-center text-center flex-grow">
                                 <item.icon className="w-12 h-12 text-accent mb-4" />
                                 <h3 className="text-xl font-headline uppercase tracking-widest mb-3">{item.title}</h3>
