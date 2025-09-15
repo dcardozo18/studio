@@ -284,7 +284,7 @@ export default function RsvpForm() {
                                         <RadioGroupItem value="no" />
                                         </FormControl>
                                         <FormLabel className="font-normal">NO</FormLabel>
-                                    </Item>
+                                    </FormItem>
                                     </RadioGroup>
                                 </FormControl>
                                 <FormMessage />
