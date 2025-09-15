@@ -7,6 +7,7 @@ import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
 import Agenda from '@/components/wedding/Agenda';
 import RsvpForm from '@/components/wedding/RsvpForm';
+import MusicSuggestion from '@/components/wedding/MusicSuggestion';
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
       <RsvpForm />
       <FlowerDivider />
       <GuestBook />
+      <FlowerDivider />
+      <MusicSuggestion />
       <FlowerDivider />
       <MusicPlaylist />
       <footer className="w-full py-8 text-center text-muted-foreground">
