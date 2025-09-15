@@ -1,6 +1,5 @@
 
 import Hero from '@/components/wedding/Hero';
-import WeddingDetails from '@/components/wedding/WeddingDetails';
 import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
 import Agenda from '@/components/wedding/Agenda';
@@ -12,8 +11,6 @@ export default function Home() {
     <main className="flex flex-col items-center">
       <Hero />
       <Invitation />
-      <FlowerDivider />
-      <WeddingDetails />
       <FlowerDivider />
       <Agenda />
       <FlowerDivider />
