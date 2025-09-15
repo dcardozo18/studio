@@ -2,7 +2,6 @@
 import Hero from '@/components/wedding/Hero';
 import WeddingDetails from '@/components/wedding/WeddingDetails';
 import GuestBook from '@/components/wedding/GuestBook';
-import MusicPlaylist from '@/components/wedding/MusicPlaylist';
 import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
 import Agenda from '@/components/wedding/Agenda';
@@ -24,8 +23,6 @@ export default function Home() {
       <GuestBook />
       <FlowerDivider />
       <MusicSuggestion />
-      <FlowerDivider />
-      <MusicPlaylist />
       <footer className="w-full py-8 text-center text-muted-foreground">
         <p>&copy; {new Date().getFullYear()} Ricardo & Rocio. All rights reserved.</p>
       </footer>
