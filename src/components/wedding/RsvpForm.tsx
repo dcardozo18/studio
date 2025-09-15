@@ -38,23 +38,21 @@ const rsvpFormSchema = z.object({
     required_error: "Por favor selecciona una opción.",
   }),
 })
-.refine(data => {
+.superRefine((data, ctx) => {
   if (data.hasPlusOne === 'no' && (!data.plusOneName || data.plusOneName.length < 2)) {
-    return false;
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: "El nombre del acompañante debe tener al menos 2 caracteres.",
+      path: ["plusOneName"],
+    });
   }
-  return true;
-}, {
-  message: "El nombre del acompañante debe tener al menos 2 caracteres.",
-  path: ["plusOneName"],
-})
-.refine(data => {
-    if (data.dietaryRestrictions === 'yes' && (!data.dietaryDetails || data.dietaryDetails.length === 0)) {
-        return false;
-    }
-    return true;
-}, {
-    message: "Por favor, especifica las preferencias o alergias.",
-    path: ["dietaryDetails"],
+  if (data.dietaryRestrictions === 'yes' && (!data.dietaryDetails || data.dietaryDetails.length === 0)) {
+    ctx.addIssue({
+        code: z.ZodIssueCode.custom,
+        message: "Por favor, especifica las preferencias o alergias.",
+        path: ["dietaryDetails"],
+    });
+  }
 });
 
 
