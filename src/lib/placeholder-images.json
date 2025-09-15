@@ -5,6 +5,18 @@
       "description": "An elegant outdoor wedding setting with flowers and draped fabric.",
       "imageUrl": "https://picsum.photos/seed/ricardorocio/1920/1080",
       "imageHint": "wedding couple"
+    },
+    {
+      "id": "invitation-top-flowers",
+      "description": "Watercolor floral arrangement for the top of an invitation.",
+      "imageUrl": "https://storage.googleapis.com/studiostory-assets/invitation-top-flowers.png",
+      "imageHint": "flowers watercolor"
+    },
+    {
+      "id": "invitation-bottom-flowers",
+      "description": "Watercolor floral arrangement for the bottom of an invitation.",
+      "imageUrl": "https://storage.googleapis.com/studiostory-assets/invitation-bottom-flowers.png",
+      "imageHint": "flowers watercolor"
     }
   ]
 }
