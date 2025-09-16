@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: 'Ricardo & Rocio',
-  description: 'Join us for our wedding celebration!',
+  description: 'Los invitan a ser parte de un día lleno de amor, sueños compartidos y momentos inolvidables',
 };
 
 export default function RootLayout({
