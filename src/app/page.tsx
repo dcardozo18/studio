@@ -3,7 +3,6 @@ import Hero from '@/components/wedding/Hero';
 import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
 import Agenda from '@/components/wedding/Agenda';
-import DogSteps from '@/components/wedding/DogSteps';
 import RsvpForm from '@/components/wedding/RsvpForm';
 import MusicSuggestion from '@/components/wedding/MusicSuggestion';
 
@@ -14,7 +13,6 @@ export default function Home() {
       <Invitation />
       <FlowerDivider />
       <Agenda />
-      <DogSteps />
       <FlowerDivider />
       <RsvpForm />
       <FlowerDivider />

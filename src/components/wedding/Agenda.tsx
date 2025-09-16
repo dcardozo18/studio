@@ -1,4 +1,7 @@
 
+"use client";
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Card, CardContent } from "@/components/ui/card";
 import Section from "./Section";
@@ -10,6 +13,8 @@ import agenda04 from '@/app/agenda04.png';
 import agenda05 from '@/app/agenda05.png';
 import agenda06 from '@/app/agenda06.png';
 import agenda07 from '@/app/agenda07.png';
+import huella from '@/app/huella.png';
+import { cn } from '@/lib/utils';
 
 
 const agendaItems = [
@@ -49,7 +54,7 @@ const agendaItems = [
         title: "Saca los prohibidos",
     },
     {
-        icon: Footprints, // Kept this as an icon since 8th image wasn't provided
+        icon: Footprints,
         time: "24:00",
         title: "Deja tu zapatilla de Cenicienta",
     }
@@ -57,6 +62,18 @@ const agendaItems = [
 
 
 export default function Agenda() {
+    const [visibleSteps, setVisibleSteps] = useState(0);
+
+    useEffect(() => {
+      const timers = agendaItems.map((_, index) => 
+        setTimeout(() => {
+          setVisibleSteps(prev => prev + 1);
+        }, (index + 1) * 500) // Each paw print appears after 500ms
+      );
+  
+      return () => timers.forEach(clearTimeout);
+    }, []);
+
     return (
         <Section animationDelay='800ms'>
             <div className="text-center">
@@ -67,8 +84,26 @@ export default function Agenda() {
                         return (
                             <Card 
                                 key={index} 
-                                className={`text-[#634F44] border-0 bg-transparent shadow-none flex flex-col items-center ${index % 2 !== 0 ? 'md:mt-[100px]' : ''}`}
+                                className={`text-[#634F44] border-0 bg-transparent shadow-none flex flex-col items-center relative ${index % 2 !== 0 ? 'md:mt-[100px]' : ''}`}
                             >
+                                {index < visibleSteps && (
+                                     <div
+                                     className={cn(
+                                       'absolute -top-8 left-1/2 -translate-x-1/2 transition-opacity duration-1000 opacity-100',
+                                     )}
+                                     style={{
+                                       transform: `translateX(-50%) rotate(${index % 2 === 0 ? '-15deg' : '15deg'})`
+                                     }}
+                                   >
+                                     <Image
+                                       src={huella}
+                                       alt="Huella de perro"
+                                       width={40}
+                                       height={40}
+                                       className="opacity-70 animate-fade-in-up"
+                                     />
+                                   </div>
+                                )}
                                 <CardContent className="flex flex-col items-center text-center p-4">
                                     {typeof IconComponent === 'string' || !IconComponent.src ? (
                                         <IconComponent className="w-10 h-10 text-accent mb-4" />
