@@ -52,11 +52,11 @@ export default function Agenda() {
         <Section animationDelay='800ms'>
             <div className="text-center">
                 <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-12">Itinerario</h2>
-                <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 sm:grid-cols-2 gap-6">
                     {agendaItems.map((item, index) => (
                         <Card 
                             key={index} 
-                            className={`text-[#634F44] border-0 bg-transparent shadow-none flex flex-col items-center ${index % 2 !== 0 ? 'md:mt-[100px]' : ''}`}
+                            className={`text-[#634F44] border-0 bg-transparent shadow-none flex flex-col items-center ${index % 2 !== 0 ? 'md:mt-[70px]' : ''}`}
                         >
                             <CardContent className="flex flex-col items-center text-center p-4">
                                 <item.icon className="w-10 h-10 text-accent mb-4" />
