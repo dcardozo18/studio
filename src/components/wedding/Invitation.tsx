@@ -49,7 +49,7 @@ export default function Invitation() {
             <div className="flex flex-col items-center">
               <Shirt className="w-8 h-8 text-accent mb-3" />
               <h3 className="font-semibold mb-2">Código de Vestuario</h3>
-              <Link href="https://www.pinterest.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Ver en Pinterest</Link>
+              <Link href="https://pin.it/58catMIxn" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Ver en Pinterest</Link>
             </div>
             <div className="flex flex-col items-center">
               <Gift className="w-8 h-8 text-accent mb-3" />
