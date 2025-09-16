@@ -51,7 +51,7 @@ export default function Agenda() {
     return (
         <Section animationDelay='800ms'>
             <div className="text-center">
-                <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-12">Itinerario</h2>
+                <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-12">Agenda del Evento</h2>
                 <div className="grid md:grid-cols-2 sm:grid-cols-2 gap-6">
                     {agendaItems.map((item, index) => (
                         <Card 

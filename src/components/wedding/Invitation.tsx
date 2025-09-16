@@ -42,8 +42,8 @@ export default function Invitation() {
               <MapPin className="w-8 h-8 text-accent mb-3" />
               <h3 className="font-semibold mb-2">Ubicación</h3>
               <div className="flex gap-4">
-                <Link href="https://maps.app.goo.gl/uXv4dY6Zz1a2b3c4d" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Google Maps</Link>
-                <Link href="https://waze.com/ul/hd2g6f4j9v" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Waze</Link>
+                <Link href="https://maps.app.goo.gl/BNG51boEtrRhEYmi7" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Google Maps</Link>
+                <Link href="https://waze.com/ul/hd2g5wtyy0" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors">Waze</Link>
               </div>
             </div>
             <div className="flex flex-col items-center">
