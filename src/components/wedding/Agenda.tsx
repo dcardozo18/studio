@@ -73,7 +73,7 @@ export default function Agenda() {
                                     {typeof IconComponent === 'string' || !IconComponent.src ? (
                                         <IconComponent className="w-10 h-10 text-accent mb-4" />
                                     ) : (
-                                        <Image src={IconComponent} alt={item.title} width={40} height={40} className="mb-4" />
+                                        <Image src={IconComponent} alt={item.title} width={150} height={150} className="mb-1" />
                                     )}
                                     <p className="text-2xl font-headline text-primary mb-2" style={{ fontSize: "2rem", fontFamily: "'Mea Culpa', cursive" }}>{item.time}</p>
                                     <h3 className="text-base font-body uppercase tracking-wider leading-tight">{item.title}</h3>
