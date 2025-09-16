@@ -11,7 +11,7 @@ export default function Section({ className, style, animationDelay, ...props }: 
   return (
     <section
       className={cn(
-        'w-full max-w-6xl mx-auto py-12 md:py-20 px-4 md:px-6 opacity-0 animate-fade-in-up',
+        'w-full max-w-6xl mx-auto px-4 md:px-6 opacity-0 animate-fade-in-up',
         className
       )}
       style={combinedStyle}

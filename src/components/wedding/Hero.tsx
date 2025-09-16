@@ -1,19 +1,19 @@
 import Image from 'next/image';
 import Countdown from './Countdown';
-import flores from '@/app/flowers.png';
+import flores from '@/app/flores.png';
 import hexagono from '@/app/hexagono.png';
 
 
 export default function Hero() {
 
   return (
-    <div className="relative text-[#634F34] w-full h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
+    <div className="relative text-[#634F34] w-full h-svh h-[80vh] min-h-[600px] flex items-center justify-center text-center overflow-hidden">
         <div className="absolute inset-0 z-0">
             <Image
             src={hexagono}
             alt="hexagon background"
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
             quality={100}
             priority
             />
@@ -23,7 +23,7 @@ export default function Hero() {
             src={flores}
             alt="flowers background"
             layout="fill"
-            objectFit="cover"
+            objectFit="contain"
             quality={100}
             priority
             />
