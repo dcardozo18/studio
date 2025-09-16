@@ -29,8 +29,8 @@ export default function Hero() {
             />
       </div>
       <div className="relative z-10 p-4 animate-fade-in-up">
-        <h1 className="text-6xl md:text-8xl font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)', lineHeight: "80px", fontSize: "8rem", fontFamily: "'Mea Culpa', cursive" }}>
-          Ricardo<br /><span className="text-primary" style={{ fontSize: "6rem", fontFamily: "'Mea Culpa', cursive" }}>&</span><br />Rocio
+        <h1 className="text-6xl md:text-8xl font-headline" style={{ textShadow: '2px 2px 8px rgba(0,0,0,0.5)', lineHeight: "80px", fontSize: "7rem", fontFamily: "'Mea Culpa', cursive" }}>
+          Ricardo<br /><span className="text-primary" style={{ fontSize: "6rem", fontFamily: "'Mea Culpa', cursive" }}>&</span><br />Duvis Rocio
         </h1>
         <div className="mt-8">
           <Countdown />
