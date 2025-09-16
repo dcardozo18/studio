@@ -86,7 +86,9 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
+body{
+  background-color: #f1ebe0;
+}
 .hero-section h1.font-headline{
   text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
   line-height: 80px;
