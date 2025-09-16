@@ -139,13 +139,13 @@ export default function RsvpForm() {
                                             <FormControl>
                                                 <RadioGroupItem value="attending" />
                                             </FormControl>
-                                            <FormLabel className="font-normal">SI, ¡ALLA ESTARE!</FormLabel>
+                                            <FormLabel className="font-normal">SI, ¡ALLÁ ESTARÉ!</FormLabel>
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
                                             <FormControl>
                                                 <RadioGroupItem value="not_attending" />
                                             </FormControl>
-                                            <FormLabel className="font-normal">NO PODRE</FormLabel>
+                                            <FormLabel className="font-normal">NO PODRÉ</FormLabel>
                                         </FormItem>
                                         <FormItem className="flex items-center space-x-3 space-y-0">
                                             <FormControl>

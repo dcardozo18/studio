@@ -13,7 +13,7 @@ export default function Invitation() {
       <div className="relative text-[#634F44] font-body text-center rounded-lg overflow-hidden max-w-2xl mx-auto">
         <div className="px-6 pb-4 pt-0">
           <p className="text-sm uppercase tracking-widest leading-relaxed">
-            Dos almas, una vida y el deseo de compartirla con quienes amamos
+            Dos almas, una vida y el deseo de compartirla con quienes amamos.
           </p>
 
           <h2 className="text-7xl md:text-7xl font-headline my-4" style={{ fontFamily: "'Mea Culpa', cursive" }}>
@@ -21,7 +21,7 @@ export default function Invitation() {
           </h2>
 
           <p className="text-xs uppercase tracking-wide leading-relaxed max-w-md mx-auto">
-            Los invitan a ser parte de un día lleno de amor, sueños compartidos y momentos inolvidables
+            Los invitan a ser parte de un día lleno de amor, sueños compartidos y momentos inolvidables.
           </p>
 
           <div className="flex justify-center items-center space-x-4 md:space-x-6 my-8 text-2xl md:text-3xl font-light tracking-widest">
@@ -53,7 +53,7 @@ export default function Invitation() {
             </div>
             <div className="flex flex-col items-center">
               <Gift className="w-8 h-8 text-accent mb-3" />
-              <h3 className="font-semibold mb-2">Lluvia de Sobre</h3>
+              <h3 className="font-semibold mb-2">Lluvia de Sobres</h3>
               <p>Tu presencia es el mejor regalo</p>
             </div>
           </div>

@@ -19,12 +19,12 @@ import { cn } from '@/lib/utils';
 const agendaItems = [
     { icon: agenda01, time: "15:00", title: "Bienvenidos a nuestro día" },
     { icon: agenda02, time: "16:00", title: "¡Sí, Acepto!" },
-    { icon: agenda03, time: "17:00", title: "Say Cheese & Cocktail Party" },
-    { icon: agenda04, time: "18:30", title: "Brinda con nosotros" },
-    { icon: agenda05, time: "19:00", title: "La cena está lista" },
-    { icon: agenda06, time: "19:30", title: "A comer pastel" },
-    { icon: agenda07, time: "20:00", title: "Saca los prohibidos" },
-    { icon: Footprints, time: "24:00", title: "Deja tu zapatilla de Cenicienta" }
+    { icon: agenda03, time: "17:00", title: "¡Say Cheese & Cocktail Party!" },
+    { icon: agenda04, time: "18:30", title: "¡Brinda con nosotros!" },
+    { icon: agenda05, time: "19:00", title: "¡La cena está lista!" },
+    { icon: agenda06, time: "19:30", title: "¡A comer pastel!" },
+    { icon: agenda07, time: "20:00", title: "¡Saca los prohibidos!" },
+    { icon: Footprints, time: "24:00", title: "¡Deja tu zapatilla de Cenicienta!" }
 ];
 
 export default function Agenda() {
