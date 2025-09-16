@@ -1,41 +1,48 @@
 
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import Section from "./Section";
-import { MapPin, Shirt, Gift } from 'lucide-react';
-import Link from "next/link";
+import { DoorOpen, Rings, Camera, Wine, Utensils, CakeSlice, Music, Footprints } from 'lucide-react';
 
 const agendaItems = [
     {
-        icon: MapPin,
-        title: "Ceremonia y Recepción",
-        lines: [
-            "Hacienda Pilares del Rosal",
-            "Subachoque El Rosal KM 3, El Rosal",
-            "Cundinamarca"
-        ],
-        links: [
-            { text: "Google Maps", url: "https://maps.app.goo.gl/kB2g2m4P9XCX4DA96" },
-            { text: "Waze", url: "https://waze.com/ul/hd2g5wtyy0" }
-        ]
+        icon: DoorOpen,
+        time: "15:00",
+        title: "Bienvenidos a nuestro día",
     },
     {
-        icon: Shirt,
-        title: "Código de Vestuario: Coctel",
-        lines: [
-            "Luce tu mejor atuendo para una noche inolvidable."
-        ],
-        links: [
-            { text: "Ver inspiración", url: "https://pin.it/5VNMVMOZA" }
-        ]
+        icon: Rings,
+        time: "16:00",
+        title: "¡Sí, Acepto!",
     },
     {
-        icon: Gift,
-        title: "Lluvia de Sobres",
-        lines: [
-            "Tu presencia es nuestro mejor regalo, pero si deseas obsequiarnos algo, que sea una lluvia de sobres."
-        ],
-        links: []
+        icon: Camera,
+        time: "17:00",
+        title: "Say Cheese & Cocktail Party",
+    },
+    {
+        icon: Wine,
+        time: "18:30",
+        title: "Brinda con nosotros",
+    },
+    {
+        icon: Utensils,
+        time: "19:00",
+        title: "La cena está lista",
+    },
+    {
+        icon: CakeSlice,
+        time: "19:30",
+        title: "A comer pastel",
+    },
+    {
+        icon: Music,
+        time: "20:00",
+        title: "Saca los prohibidos",
+    },
+    {
+        icon: Footprints,
+        time: "24:00",
+        title: "Deja tu zapatilla de Cenicienta",
     }
 ];
 
@@ -44,23 +51,14 @@ export default function Agenda() {
     return (
         <Section animationDelay='800ms'>
             <div className="text-center">
-                <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-10">Itinerario</h2>
-                <div className="grid md:grid-cols-3 gap-8">
+                <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-12">Itinerario</h2>
+                <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-6">
                     {agendaItems.map((item, index) => (
-                        <Card key={index} className="text-[#634F44] border-0 flex flex-col pt-8 pb-6 px-6">
-                            <CardContent className="flex flex-col items-center text-center flex-grow">
-                                <item.icon className="w-12 h-12 text-accent mb-4" />
-                                <h3 className="text-xl font-headline uppercase tracking-widest mb-3">{item.title}</h3>
-                                <div className="text-sm leading-relaxed mb-4 flex-grow">
-                                    {item.lines.map((line, lineIndex) => <p key={lineIndex}>{line}</p>)}
-                                </div>
-                                <div className="flex gap-4">
-                                    {item.links.map((link, linkIndex) => (
-                                         <Button key={linkIndex} asChild variant="link" className="text-accent hover:text-accent/80 p-0 h-auto">
-                                            <Link href={link.url} target="_blank">{link.text}</Link>
-                                        </Button>
-                                    ))}
-                                </div>
+                        <Card key={index} className="text-[#634F44] border-0 bg-transparent shadow-none flex flex-col items-center">
+                            <CardContent className="flex flex-col items-center text-center p-4">
+                                <item.icon className="w-10 h-10 text-accent mb-4" />
+                                <p className="text-2xl font-headline text-primary mb-2">{item.time}</p>
+                                <h3 className="text-base font-body uppercase tracking-wider leading-tight">{item.title}</h3>
                             </CardContent>
                         </Card>
                     ))}
