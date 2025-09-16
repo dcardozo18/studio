@@ -1,7 +1,7 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import Section from "./Section";
-import { DoorOpen, Rings, Camera, Wine, Utensils, CakeSlice, Music, Footprints } from 'lucide-react';
+import { DoorOpen, HeartHandshake, Camera, Wine, Utensils, CakeSlice, Music, Footprints } from 'lucide-react';
 
 const agendaItems = [
     {
@@ -10,7 +10,7 @@ const agendaItems = [
         title: "Bienvenidos a nuestro día",
     },
     {
-        icon: Rings,
+        icon: HeartHandshake,
         time: "16:00",
         title: "¡Sí, Acepto!",
     },
