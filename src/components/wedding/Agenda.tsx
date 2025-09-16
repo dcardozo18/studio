@@ -15,7 +15,7 @@ const agendaItems = [
             "Cundinamarca"
         ],
         links: [
-            { text: "Google Maps", url: "https://maps.app.goo.gl/UGLRZQC46Z8QWKYF9" },
+            { text: "Google Maps", url: "https://maps.app.goo.gl/kB2g2m4P9XCX4DA96" },
             { text: "Waze", url: "https://waze.com/ul/hd2g5wtyy0" }
         ]
     },

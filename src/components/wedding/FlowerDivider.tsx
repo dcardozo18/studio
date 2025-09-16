@@ -4,13 +4,11 @@ import flowerDivider from '@/app/flowers.png';
 
 export default function FlowerDivider({ className }: { className?: string }) {
   return (
-    <div className={cn("flex items-center justify-center my-8 md:my-12", className)}>
-        <div className="relative h-24 w-full max-w-sm">
+    <div className={cn("flex items-center justify-center", className)}>
+        <div className="relative w-full max-w-6xl">
           <Image 
             src={flowerDivider} 
             alt="flower-divider"
-            style={{ objectFit: 'contain' }}
-            fill
             priority
           />
         </div>
