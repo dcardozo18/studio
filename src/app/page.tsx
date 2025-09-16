@@ -1,5 +1,6 @@
 
 import Hero from '@/components/wedding/Hero';
+import CountDown from '@/components/wedding/Countdown';
 import FlowerDivider from '@/components/wedding/FlowerDivider';
 import Invitation from '@/components/wedding/Invitation';
 import Agenda from '@/components/wedding/Agenda';
@@ -10,6 +11,7 @@ export default function Home() {
   return (
     <main className="flex flex-col items-center">
       <Hero />
+      <CountDown />
       <Invitation />
       <FlowerDivider />
       <Agenda />

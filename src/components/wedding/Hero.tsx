@@ -32,9 +32,6 @@ export default function Hero() {
         <h1 className="text-6xl sm:text-6xl md:text-8xl font-headline">
           Ricardo<br /><span className="text-primary md:text-4xl">&</span><br />Duvis Rocio
         </h1>
-        <div className="mt-8">
-          <Countdown />
-        </div>
       </div>
     </div>
   );
