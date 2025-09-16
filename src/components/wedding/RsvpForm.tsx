@@ -20,6 +20,8 @@ import { useToast } from "@/hooks/use-toast";
 import Section from './Section';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
+import { submitRsvp } from '@/app/actions';
+import { useState } from "react";
 
 const rsvpFormSchema = z.object({
   guestName: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres." }),
@@ -60,6 +62,7 @@ type RsvpFormValues = z.infer<typeof rsvpFormSchema>;
 
 export default function RsvpForm() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const topFlowers = PlaceHolderImages.find(p => p.id === 'invitation-top-flowers');
   const bottomFlowers = PlaceHolderImages.find(p => p.id === 'invitation-bottom-flowers');
 
@@ -76,13 +79,24 @@ export default function RsvpForm() {
   const watchDietary = form.watch("dietaryRestrictions");
 
 
-  function onSubmit(data: RsvpFormValues) {
-    toast({
-      title: "¡Confirmación enviada!",
-      description: "Gracias por confirmar tu asistencia. ¡Nos vemos en la boda!",
-    });
-    console.log(data);
-    form.reset();
+  async function onSubmit(data: RsvpFormValues) {
+    setIsSubmitting(true);
+    const result = await submitRsvp(data);
+    setIsSubmitting(false);
+
+    if (result.success) {
+      toast({
+        title: "¡Confirmación enviada!",
+        description: "Gracias por confirmar tu asistencia. ¡Nos vemos en la boda!",
+      });
+      form.reset();
+    } else {
+        toast({
+            variant: "destructive",
+            title: "Error al enviar",
+            description: result.message,
+        });
+    }
   }
 
   return (
@@ -282,8 +296,8 @@ export default function RsvpForm() {
                             )}
                         />
 
-                        <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg !mt-12">
-                            Enviar Confirmación
+                        <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg !mt-12" disabled={isSubmitting}>
+                            {isSubmitting ? 'Enviando...' : 'Enviar Confirmación'}
                         </Button>
                     </form>
                 </Form>

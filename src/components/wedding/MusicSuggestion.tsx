@@ -18,6 +18,8 @@ import { useToast } from "@/hooks/use-toast";
 import Section from './Section';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
+import { submitMusicSuggestion } from "@/app/actions";
+import { useState } from "react";
 
 const musicSuggestionSchema = z.object({
   song: z.string().min(2, { message: "El nombre de la canción debe tener al menos 2 caracteres." }),
@@ -28,6 +30,7 @@ type MusicSuggestionValues = z.infer<typeof musicSuggestionSchema>;
 
 export default function MusicSuggestion() {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const topFlowers = PlaceHolderImages.find(p => p.id === 'invitation-top-flowers');
   const bottomFlowers = PlaceHolderImages.find(p => p.id === 'invitation-bottom-flowers');
 
@@ -39,13 +42,24 @@ export default function MusicSuggestion() {
     },
   });
 
-  function onSubmit(data: MusicSuggestionValues) {
-    toast({
-      title: "¡Sugerencia recibida!",
-      description: "Gracias por ayudarnos a crear la playlist perfecta.",
-    });
-    console.log(data);
-    form.reset();
+  async function onSubmit(data: MusicSuggestionValues) {
+    setIsSubmitting(true);
+    const result = await submitMusicSuggestion(data);
+    setIsSubmitting(false);
+
+    if (result.success) {
+        toast({
+            title: "¡Sugerencia recibida!",
+            description: "Gracias por ayudarnos a crear la playlist perfecta.",
+        });
+        form.reset();
+    } else {
+        toast({
+            variant: "destructive",
+            title: "Error al enviar",
+            description: result.message,
+        });
+    }
   }
 
   return (
@@ -89,8 +103,8 @@ export default function MusicSuggestion() {
                                 </FormItem>
                             )}
                         />
-                        <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg !mt-10">
-                            Enviar Sugerencia
+                        <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg !mt-10" disabled={isSubmitting}>
+                            {isSubmitting ? 'Enviando...' : 'Enviar Sugerencia'}
                         </Button>
                     </form>
                 </Form>

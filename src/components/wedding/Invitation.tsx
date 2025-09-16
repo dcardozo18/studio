@@ -14,7 +14,7 @@ export default function Invitation() {
             Dos almas, una vida y el deseo de compartirla con quienes amamos
           </p>
 
-          <h2 className="text-6xl md:text-7xl font-headline my-4">
+          <h2 className="text-7xl md:text-7xl font-headline my-4" style={{ fontFamily: "'Mea Culpa', cursive" }}>
             Ricardo & Rocio
           </h2>
 

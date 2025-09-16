@@ -50,13 +50,13 @@ export default function Countdown() {
 
   const timerComponents = Object.keys(timeLeft).length ? (
     <div className="grid grid-cols-4 gap-4 md:gap-8">
-      <CountdownUnit value={timeLeft.days || 0} label="Days" />
-      <CountdownUnit value={timeLeft.hours || 0} label="Hours" />
-      <CountdownUnit value={timeLeft.minutes || 0} label="Minutes" />
-      <CountdownUnit value={timeLeft.seconds || 0} label="Seconds" />
+      <CountdownUnit value={timeLeft.days || 0} label="Días" />
+      <CountdownUnit value={timeLeft.hours || 0} label="Horas" />
+      <CountdownUnit value={timeLeft.minutes || 0} label="Minutos" />
+      <CountdownUnit value={timeLeft.seconds || 0} label="Segundos" />
     </div>
   ) : (
-    <span className="text-2xl font-headline text-primary">The day is here!</span>
+    <span className="text-2xl font-headline text-primary">El día ha llegado!!</span>
   );
 
   return (
