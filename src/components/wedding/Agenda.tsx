@@ -43,17 +43,15 @@ export default function Agenda() {
                         }, index * 300)
                     );
                     
-                    // Clean up timers and remove scroll listener once animation is triggered
                     return () => {
                         timers.forEach(clearTimeout);
-                        window.removeEventListener('scroll', handleScroll);
                     };
                 }
             }
         };
 
-        window.addEventListener('scroll', handleScroll);
-        handleScroll(); // Check on initial render
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll();
 
         return () => window.removeEventListener('scroll', handleScroll);
     }, [visibleSteps]);
@@ -64,22 +62,20 @@ export default function Agenda() {
                 <h2 className="text-3xl font-headline uppercase tracking-widest text-primary mb-16">Agenda del Evento</h2>
                 
                 <div id="timeline" className="relative max-w-xl mx-auto">
-                    <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 border-l-2 border-dashed border-primary/50"></div>
-
                     {agendaItems.map((item, index) => {
                         const IconComponent = item.icon;
                         const isEven = index % 2 === 0;
 
                         return (
-                            <div key={index} className={cn("relative mb-12 flex items-center", isEven ? "justify-start" : "justify-end")}>
-                                <div className={cn("w-1/2", isEven ? "pr-8 text-right" : "pl-8 text-left")}>
+                            <div key={index} className={cn("relative mb-8 flex items-center", isEven ? "justify-start" : "justify-end")}>
+                                <div className={cn("w-1/2 relative", isEven ? "pr-8 text-right" : "pl-8 text-left")}>
                                     <div className={cn(
                                         "relative inline-block transition-all duration-700 delay-300",
                                         visibleSteps > index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                                     )}>
                                         <Card className="text-[#634F44] border-0 bg-transparent shadow-none">
                                             <CardContent className="flex flex-col items-center text-center p-0">
-                                                {typeof IconComponent === 'string' || !IconComponent.src ? (
+                                                {typeof IconComponent === 'string' || !('src' in IconComponent) ? (
                                                     <IconComponent className="w-10 h-10 text-accent mb-4 mx-auto" />
                                                 ) : (
                                                     <Image src={IconComponent} alt={item.title} width={150} height={150} className="mb-1" />
@@ -89,19 +85,30 @@ export default function Agenda() {
                                             </CardContent>
                                         </Card>
                                     </div>
-                                </div>
-                                <div className={cn(
-                                    "absolute left-1/2 -translate-x-1/2 transition-opacity duration-1000",
-                                    visibleSteps > index ? 'opacity-100' : 'opacity-0',
-                                    isEven ? "rotate-[-25deg]" : "rotate-[25deg]"
-                                )}>
-                                    <Image
-                                        src={huella}
-                                        alt="Huella de perro"
-                                        width={40}
-                                        height={40}
-                                        className="opacity-70"
-                                    />
+                                    
+                                    {/* Paw prints trail */}
+                                    {index < agendaItems.length - 1 && (
+                                        <div className={cn(
+                                            "absolute top-1/2 -translate-y-1/2 h-full flex flex-col justify-around",
+                                            isEven ? "right-[-20px]" : "left-[-20px]"
+                                        )}>
+                                            {[1, 2, 3].map(pawIndex => (
+                                                <div key={pawIndex} className={cn(
+                                                    "transition-opacity duration-1000",
+                                                     visibleSteps > index + (pawIndex * 0.2) ? 'opacity-100' : 'opacity-0'
+                                                )}>
+                                                     <Image
+                                                        src={huella}
+                                                        alt="Huella de perro"
+                                                        width={30}
+                                                        height={30}
+                                                        className="opacity-60"
+                                                        style={{ transform: `rotate(${isEven ? -20 + pawIndex * 5 : 20 - pawIndex * 5}deg) scaleX(${isEven ? 1 : -1})` }}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         )
