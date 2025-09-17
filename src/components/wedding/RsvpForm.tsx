@@ -99,6 +99,19 @@ export default function RsvpForm() {
     }
   }
 
+  async function handleTestSubmit() {
+    const testData: RsvpFormValues = {
+        guestName: "Invitado de Prueba",
+        attendance: "attending",
+        hasPlusOne: "no",
+        plusOneName: "Acompañante de Prueba",
+        dietaryRestrictions: "yes",
+        dietaryDetails: "Pescetariano",
+        accommodation: "yes",
+    };
+    await onSubmit(testData);
+  }
+
   return (
     <Section>
         <div className="relative text-[#634F44] font-body text-center rounded-lg overflow-hidden max-w-2xl mx-auto">
@@ -296,9 +309,14 @@ export default function RsvpForm() {
                             )}
                         />
 
-                        <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg !mt-12" disabled={isSubmitting}>
-                            {isSubmitting ? 'Enviando...' : 'Enviar Confirmación'}
-                        </Button>
+                        <div className="flex flex-col sm:flex-row gap-4 !mt-12">
+                            <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground text-lg" disabled={isSubmitting}>
+                                {isSubmitting ? 'Enviando...' : 'Enviar Confirmación'}
+                            </Button>
+                            <Button type="button" size="lg" variant="outline" className="w-full text-lg" onClick={handleTestSubmit} disabled={isSubmitting}>
+                                Prueba de Envío
+                            </Button>
+                        </div>
                     </form>
                 </Form>
             </div>
@@ -308,3 +326,5 @@ export default function RsvpForm() {
     </Section>
   );
 }
+
+    
