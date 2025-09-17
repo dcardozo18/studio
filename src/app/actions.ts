@@ -40,21 +40,52 @@ export async function submitRsvp(data: z.infer<typeof rsvpFormSchema>) {
     const { guestName, attendance, hasPlusOne, plusOneName, dietaryRestrictions, dietaryDetails, accommodation } = validatedData;
 
     const subject = `Nueva confirmación de asistencia: ${guestName}`;
-    const textBody = `
-      Ha llegado una nueva confirmación de asistencia para la boda:
-      
-      Nombre: ${guestName}
-      Asistencia: ${attendance}
-      Lleva acompañante: ${hasPlusOne === 'no' ? `Sí, ${plusOneName}` : 'No'}
-      Restricciones alimentarias: ${dietaryRestrictions === 'yes' ? `Sí, ${dietaryDetails}` : 'No'}
-      Necesita alojamiento: ${accommodation}
+    const htmlBody = `
+      <h2 style="color: #333;">Nueva Confirmación de Asistencia</h2>
+      <p>Ha llegado una nueva confirmación de asistencia para la boda de Ricardo & Rocio.</p>
+      <table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="text-align: left; padding: 8px;">Campo</th>
+          <th style="text-align: left; padding: 8px;">Respuesta</th>
+        </tr>
+        <tr>
+          <td style="padding: 8px;"><strong>Nombre</strong></td>
+          <td style="padding: 8px;">${guestName}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px;"><strong>Asistencia</strong></td>
+          <td style="padding: 8px;">${attendance}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px;"><strong>¿Lleva acompañante?</strong></td>
+          <td style="padding: 8px;">${hasPlusOne === 'yes' ? 'Sí' : 'No'}</td>
+        </tr>
+        ${hasPlusOne === 'yes' && plusOneName ? `
+        <tr>
+          <td style="padding: 8px;"><strong>Nombre del acompañante</strong></td>
+          <td style="padding: 8px;">${plusOneName}</td>
+        </tr>` : ''}
+        <tr>
+          <td style="padding: 8px;"><strong>¿Restricciones alimentarias?</strong></td>
+          <td style="padding: 8px;">${dietaryRestrictions === 'yes' ? 'Sí' : 'No'}</td>
+        </tr>
+        ${dietaryRestrictions === 'yes' && dietaryDetails ? `
+        <tr>
+          <td style="padding: 8px;"><strong>Detalles de la restricción</strong></td>
+          <td style="padding: 8px;">${dietaryDetails}</td>
+        </tr>` : ''}
+        <tr>
+          <td style="padding: 8px;"><strong>¿Necesita alojamiento?</strong></td>
+          <td style="padding: 8px;">${accommodation}</td>
+        </tr>
+      </table>
     `;
 
     await transporter.sendMail({
       from: `"Notificaciones Boda" <${process.env.SMTP_USER}>`,
       to: emailTo,
       subject: subject,
-      text: textBody,
+      html: htmlBody,
     });
 
     return { success: true, message: "¡Confirmación enviada con éxito!" };
@@ -71,18 +102,30 @@ export async function submitMusicSuggestion(data: z.infer<typeof musicSuggestion
     const { song, artist } = validatedData;
     
     const subject = `Nueva sugerencia musical: ${song}`;
-    const textBody = `
-      Se ha recibido una nueva sugerencia musical para la playlist de la boda:
-      
-      Canción: ${song}
-      Artista: ${artist}
+    const htmlBody = `
+      <h2 style="color: #333;">Nueva Sugerencia Musical</h2>
+      <p>Se ha recibido una nueva sugerencia musical para la playlist de la boda.</p>
+      <table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%;">
+        <tr style="background-color: #f2f2f2;">
+          <th style="text-align: left; padding: 8px;">Campo</th>
+          <th style="text-align: left; padding: 8px;">Respuesta</th>
+        </tr>
+        <tr>
+          <td style="padding: 8px;"><strong>Canción</strong></td>
+          <td style="padding: 8px;">${song}</td>
+        </tr>
+        <tr>
+          <td style="padding: 8px;"><strong>Artista</strong></td>
+          <td style="padding: 8px;">${artist}</td>
+        </tr>
+      </table>
     `;
 
     await transporter.sendMail({
       from: `"Notificaciones Boda" <${process.env.SMTP_USER}>`,
       to: emailTo,
       subject: subject,
-      text: textBody,
+      html: htmlBody,
     });
 
     return { success: true, message: "¡Sugerencia recibida!" };
