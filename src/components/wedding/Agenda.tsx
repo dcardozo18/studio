@@ -75,10 +75,10 @@ export default function Agenda() {
                                     )}>
                                         <Card className="text-[#634F44] border-0 bg-transparent shadow-none">
                                             <CardContent className="flex flex-col items-center text-center p-0">
-                                                {typeof IconComponent === 'string' || !('src' in IconComponent) ? (
-                                                    <IconComponent className="w-10 h-10 text-accent mb-4 mx-auto" />
-                                                ) : (
+                                                {typeof IconComponent !== 'string' && 'src' in IconComponent ? (
                                                     <Image src={IconComponent} alt={item.title} width={150} height={150} className="mb-1" />
+                                                ) : (
+                                                    <IconComponent className="w-10 h-10 text-accent mb-4 mx-auto" />
                                                 )}
                                                 <p className="text-2xl font-headline text-primary mb-2" style={{ fontSize: "2rem", fontFamily: "'Mea Culpa', cursive" }}>{item.time}</p>
                                                 <h3 className="text-base font-body uppercase tracking-wider leading-tight">{item.title}</h3>
