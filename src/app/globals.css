@@ -96,6 +96,15 @@ body{
   font-family: 'Mea Culpa';
 }
 
+a.transition-colors{
+  color: hsl(var(--primary));
+  text-decoration: underline;
+}
+
+a.transition-colors:hover{
+  color: rgb(99 79 68 / var(--tw-text-opacity, 1));
+}
+
 .hero-section h1.font-headline span{
   font-size: 3.75rem;
 }
